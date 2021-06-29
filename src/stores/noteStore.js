@@ -1,8 +1,6 @@
 import { makeAutoObservable } from 'mobx';
-
-class noteStore {
+class NoteStore {
   notes = [];
-
   constructor(rootStore) {
     this.rootStore = rootStore;
     makeAutoObservable(this);
@@ -10,7 +8,6 @@ class noteStore {
 
   addNote(note) {
     let sendNote = { note };
-
     if (this.rootStore.userStore.name) {
       sendNote.username = this.rootStore.userStore.name;
     }
@@ -18,4 +15,4 @@ class noteStore {
   }
 }
 
-export default noteStore;
+export default NoteStore;
