@@ -1,3 +1,4 @@
+import React from 'react';
 import UserStore from './userStore';
 import NoteStore from './noteStore';
 
@@ -7,3 +8,7 @@ class RootStore {
     this.noteStore = new NoteStore();
   }
 }
+
+const StoresContext = React.createContext(new RootStore());
+
+export const useStores = () => React.useContext(StoresContext);
